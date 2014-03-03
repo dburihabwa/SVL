@@ -26,11 +26,13 @@ proctype haut(){
 
 proctype bas(){
 	do ::
-		atomic { etatHaut == inactif; etatBas = enAttente;}
-		atomic { verrou == libre && etatHaut == inactif; }
-		etatBas = actif
-		etatBas = inactif;
+		etatHaut == inactif -> etatBas = enAttente;
+		etatHaut == inactif ->
+		atomic { verrou == libre; verrou = occupe;}
+		etatHaut == inactif -> etatBas = actif;
+		etatHaut == inactif -> etatBas = inactif;
 		verrou = libre;
+		
 	od;
 }
 

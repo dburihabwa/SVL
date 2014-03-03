@@ -20,3 +20,15 @@ b. La proposition LTL g est vérifiée car le passage à l'état actif puis l'é
 4.  Travail préliminaire sur l'association verrou et préemption
 ############################################
 
+Q1.
+
+Dans le cas où le processus bas a le verrou et que le processus haut passe en attente, le processus bas sera bloqué car le processus haut n'est plus inactif et vu que le verrou n'a pas été libéré, le processus haut sera bloqué. Ce comportement est le même pour les 3 trails. (en effet il y a 3 instructions protégées par le verrou)
+
+############################################
+5 Modélisation des trois tâches avec prioritée
+############################################
+
+4 interblocages subsistent et se produisent lorsque le processus bas a le verrou et que le processus moyen sort de son état inactif.
+Le processus bas se bloque et conserve alors le verrou empéchant le processus haut d'y accéder.
+
+
