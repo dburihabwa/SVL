@@ -3,7 +3,7 @@ package main.java.fr.lille1.svl;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BankAccount {
+public class BankAccount implements IBankAccount {
 	private Integer balance;
 	private List<Integer> operations;
 
