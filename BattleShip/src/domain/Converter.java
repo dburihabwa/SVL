@@ -1,7 +1,8 @@
 package domain;
 
 public interface Converter {
-	Cell convert(char x, char y);
+	Cell convert(String x, String y) throws IllegalArgumentException,
+			NumberFormatException;
 
-	char[] revert(Cell cell);
+	String[] revert(Cell cell) throws IllegalArgumentException;
 }

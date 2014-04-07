@@ -11,16 +11,31 @@ public class ConverterImpl implements Converter {
 	}
 
 	@Override
-	public Cell convert(char x, char y) {
-		int i = x - 'a';
-		int j = Integer.parseInt(y + "");
+	public Cell convert(final String x, final String y)
+			throws IllegalArgumentException, NumberFormatException {
+		if (x == null) {
+			throw new IllegalArgumentException("x argument cannot be null!");
+		}
+		if (y == null) {
+			throw new IllegalArgumentException("y argument cannot be null!");
+		}
+		int i = x.charAt(0) - 'a';
+		int j = Integer.parseInt(y);
 		return grid.getCell(i, j);
 	}
 
 	@Override
-	public char[] revert(Cell cell) {
-		// TODO Auto-generated method stub
-		return null;
+	public String[] revert(final Cell cell) throws IllegalArgumentException {
+		if (cell == null) {
+			throw new IllegalArgumentException("cell argument cannot be null!");
+		}
+		grid.getCell(cell.getX(), cell.getY());
+		String[] toReturn = new String[2];
+		char i = (char) cell.getX();
+		i += 'a';
+		toReturn[0] = i + "";
+		toReturn[1] = cell.getY() + "";
+		return toReturn;
 	}
 
 }

@@ -99,4 +99,21 @@ public class GridImpl implements Grid {
 
 		return false;
 	}
+
+	@Override
+	public String toString() {
+		String res = "\t";
+		for (int i = 0; i < cells[0].length; i++) {
+			res += i + "\t";
+		}
+		res += "\n";
+		for (int i = 0; i < cells.length; i++) {
+			res += (char) ('a' + i) + "\t";
+			for (int j = 0; j < cells[0].length; j++) {
+				res += cells[i][j].toChar() + "\t";
+			}
+			res += "\n\n";
+		}
+		return res;
+	}
 }

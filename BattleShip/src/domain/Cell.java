@@ -21,13 +21,11 @@ public class Cell {
 	}
 
 	public boolean bomb() {
-		if (this.ship != null && !this.hit) {
-			this.hit = true;
-			this.ship.loseCell();
-			return true;
-		}
 		if (!this.hit) {
 			this.hit = true;
+			if (this.ship != null) {
+				this.ship.loseCell();
+			}
 			return true;
 		}
 		return false;
